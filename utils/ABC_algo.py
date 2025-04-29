@@ -73,6 +73,8 @@ class ABC:
                 if fitness[best_index] < best_fitness:
                     best_fitness = fitness[best_index]
                     best_solution = food_sources[best_index].copy()
+                    # np.savetxt("best.txt", [best_fitness])
+                    # np.savetxt("best_sol.txt", [best_solution])
 
                 
                 self.search_track.append(best_fitness)
@@ -80,6 +82,8 @@ class ABC:
                     "Iteration": f"{idx+1}/{self.max_iter}",
                     "Best fitness": f"{best_fitness}"})
                 pbar.update(1)
+
+        print("best_solution : ", best_solution)
 
         return best_solution, best_fitness
 
